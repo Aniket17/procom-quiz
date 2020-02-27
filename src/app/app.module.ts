@@ -9,9 +9,10 @@ import { TimerComponent } from "./components/timer/timer.component";
 import { QuizToobarComponent } from "./components/quiz-toobar/quiz-toobar.component";
 import { ReviewQuestionsComponent } from "./components/review-questions/review-questions.component";
 import { ResultComponent } from "./components/result/result.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   declarations: [
     AppComponent,
     WelcomeComponent,

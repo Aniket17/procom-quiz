@@ -1,0 +1,156 @@
+{
+  "id": 1,
+  "name": "sample quiz",
+  "questions": [
+    {
+      "id": 1,
+      "content": "Which is the largest country in the world by population?",
+      "choices": [
+        {
+          "id": 1,
+          "questionId": 1,
+          "content": "India",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "questionId": 1,
+          "content": "USA",
+          "isCorrect": false
+        },
+        {
+          "id": 3,
+          "questionId": 1,
+          "content": "China",
+          "isCorrect": true
+        },
+        {
+          "id": 4,
+          "questionId": 1,
+          "content": "Russia",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "content": "When did the second world war end?",
+      "choices": [
+        {
+          "id": 5,
+          "questionId": 2,
+          "content": "1945",
+          "isCorrect": true
+        },
+        {
+          "id": 5,
+          "questionId": 2,
+          "content": "1939",
+          "isCorrect": false
+        },
+        {
+          "id": 7,
+          "questionId": 2,
+          "content": "1944",
+          "isCorrect": false
+        },
+        {
+          "id": 8,
+          "questionId": 2,
+          "content": "1942",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "content": "Which was the first country to issue paper currency?",
+      "choices": [
+        {
+          "id": 9,
+          "questionId": 3,
+          "content": "USA",
+          "isCorrect": false
+        },
+        {
+          "id": 10,
+          "questionId": 3,
+          "content": "France",
+          "isCorrect": false
+        },
+        {
+          "id": 11,
+          "questionId": 3,
+          "content": "Italy",
+          "isCorrect": false
+        },
+        {
+          "id": 12,
+          "questionId": 3,
+          "content": "China",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "content": "Which city hosted the 1996 Summer Olympics?",
+      "choices": [
+        {
+          "id": 13,
+          "questionId": 4,
+          "content": "Atlanta",
+          "isCorrect": true
+        },
+        {
+          "id": 14,
+          "questionId": 4,
+          "content": "Sydney",
+          "isCorrect": false
+        },
+        {
+          "id": 15,
+          "questionId": 4,
+          "content": "Athens",
+          "isCorrect": false
+        },
+        {
+          "id": 16,
+          "questionId": 4,
+          "content": "Beijing",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "content": "Who invented telephone?",
+      "choices": [
+        {
+          "id": 17,
+          "questionId": 5,
+          "content": "Albert Einstein",
+          "isCorrect": false
+        },
+        {
+          "id": 18,
+          "questionId": 5,
+          "content": "Alexander Graham Bell",
+          "isCorrect": true
+        },
+        {
+          "id": 19,
+          "questionId": 5,
+          "content": "Isaac Newton",
+          "isCorrect": false
+        },
+        {
+          "id": 20,
+          "questionId": 5,
+          "content": "Marie Curie",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
-<p>
-  quiz works!
-</p>
+<quiz-toobar (onNext)="getNextQuestion()" (onPrevious)="getPreviousQuestion()" [nextDisabled]="disableNext()"
+  [prevDisabled]="disablePrevious()" (onReview)="review($event)"></quiz-toobar>
+<timer [duration]="duration" (timerElapsed)="submit()"></timer>
+<question [question]="currentQuestion"></question>

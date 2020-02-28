@@ -10,9 +10,11 @@ import { QuizToobarComponent } from "./components/quiz-toobar/quiz-toobar.compon
 import { ReviewQuestionsComponent } from "./components/review-questions/review-questions.component";
 import { ResultComponent } from "./components/result/result.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule } from "@angular/common/http";
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   declarations: [
     AppComponent,
     WelcomeComponent,
@@ -20,7 +22,8 @@ import { AppRoutingModule } from "./app-routing.module";
     TimerComponent,
     QuizToobarComponent,
     ReviewQuestionsComponent,
-    ResultComponent
+    ResultComponent,
+    QuestionComponent
   ],
   bootstrap: [AppComponent]
 })

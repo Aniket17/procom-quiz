@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-quiz-toobar',
-  templateUrl: './quiz-toobar.component.html',
-  styleUrls: ['./quiz-toobar.component.css']
+  selector: "quiz-toobar",
+  templateUrl: "./quiz-toobar.component.html",
+  styleUrls: ["./quiz-toobar.component.css"]
 })
 export class QuizToobarComponent implements OnInit {
+  @Output() onNext = new EventEmitter();
+  @Output() onPrevious = new EventEmitter();
+  @Output() onReview = new EventEmitter();
 
-  constructor() { }
+  @Input() nextDisabled: boolean;
+  @Input() prevDisabled: boolean;
+  isReviewing: boolean = false;
+  constructor() {}
+  ngOnInit() {}
 
-  ngOnInit() {
+  next() {
+    this.onNext.emit("next");
   }
-
+  previous() {
+    this.onPrevious.emit("previous");
+  }
+  review() {
+    this.isReviewing = !this.isReviewing;
+    this.onReview.emit({ isReviewing: this.isReviewing });
+  }
 }

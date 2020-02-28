@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { QuizService } from "../../services/quiz.service";
 import { Quiz } from "../../models/quiz";
 import Question from "../../models/question";
+import { StateService } from "../../services/state.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "quiz",
@@ -9,13 +11,17 @@ import Question from "../../models/question";
   styleUrls: ["./quiz.component.css"]
 })
 export class QuizComponent implements OnInit {
-  constructor(private quizService: QuizService) {}
+  constructor(
+    private quizService: QuizService,
+    private stateService: StateService,
+    private router: Router
+  ) {}
 
   @Input() quizId: number = 1; //defaulted
   quiz: Quiz;
   currentQuestion: Question;
   id: number = -1;
-  duration: number = 10;
+  duration: number = 2;
   isReviewing: boolean;
 
   ngOnInit() {
@@ -59,7 +65,17 @@ export class QuizComponent implements OnInit {
     this.id = this.currentQuestion.index;
     this.review();
   }
-  submit() {}
+  submit() {
+    let score = this.calculateScore(this.quiz.questions);
+    this.stateService.setResult(score);
+    this.router.navigate(["/result"]);
+  }
+  calculateScore(questions: Question[]) {
+    let score = questions.filter(
+      x => x.selected == x.choices.find(x => x.isCorrect).id
+    ).length;
+    return score;
+  }
   saveAnswer() {
     if (!this.currentQuestion) return;
     //in case you want to save it to persistent storage

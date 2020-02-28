@@ -16,6 +16,8 @@ export class QuizComponent implements OnInit {
   currentQuestion: Question;
   id: number = -1;
   duration: number = 10;
+  isReviewing: boolean;
+
   ngOnInit() {
     this.loadQuiz(this.quizId);
   }
@@ -48,21 +50,19 @@ export class QuizComponent implements OnInit {
   disablePrevious() {
     return !this.quiz || !this.quiz.questions || this.id <= 0;
   }
-  review($event) {
-    if ($event.isReviwing) {
-      //
-    } else {
-      //
-    }
+  review() {
+    this.isReviewing = !this.isReviewing;
+  }
+  onReviewQuestionClick({ questionId }) {
+    if (!questionId) return;
+    this.currentQuestion = this.quiz.questions.find(x => x.id == questionId);
+    this.id = this.currentQuestion.index;
+    this.review();
   }
   submit() {}
   saveAnswer() {
     if (!this.currentQuestion) return;
     //in case you want to save it to persistent storage
-    this.quiz.questions.forEach(x => {
-      if (x.id == this.currentQuestion.id) {
-        x = this.currentQuestion;
-      }
-    });
+    this.quiz.questions[this.currentQuestion.index] = this.currentQuestion;
   }
 }

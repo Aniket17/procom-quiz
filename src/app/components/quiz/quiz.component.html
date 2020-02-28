@@ -1,5 +1,12 @@
-<quiz-toobar (onNext)="getNextQuestion()" (onPrevious)="getPreviousQuestion()" [nextDisabled]="disableNext()"
-  [prevDisabled]="disablePrevious()" (onReview)="review($event)"></quiz-toobar>
-<timer [duration]="duration" (timerElapsed)="submit()"></timer>
-<question [question]="currentQuestion"></question>
-<!-- <pre>{{currentQuestion|json}}</pre> -->
+<div class="row col-sm-12" *ngIf="!isReviewing">
+  <quiz-toobar (onNext)="getNextQuestion()" (onPrevious)="getPreviousQuestion()" [nextDisabled]="disableNext()"
+    [prevDisabled]="disablePrevious()" (onReview)="review($event)"></quiz-toobar>
+  <timer [duration]="duration" (timerElapsed)="submit()"></timer>
+  <question [question]="currentQuestion"></question>
+</div>
+
+<div class="row col sm-12" *ngIf="isReviewing">
+  <div *ngFor="let q of quiz.questions">
+    <review-question [question]="q" (onQuestionClick)="onReviewQuestionClick($event)"></review-question>
+  </div>
+</div>

@@ -8,12 +8,13 @@ import Question from "../../models/question";
 })
 export class ReviewQuestionComponent implements OnInit {
   @Input() question: Question;
+
   @Output() onQuestionClick = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
 
   goToQuestion() {
-    this.onQuestionClick.emit(this.question.index);
+    this.onQuestionClick.emit({ questionId: this.question.id });
   }
 }

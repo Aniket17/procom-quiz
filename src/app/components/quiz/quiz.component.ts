@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { QuizService } from "src/app/services/quiz.service";
-import { Quiz } from "src/app/models/quiz";
-import Question from "src/app/models/question";
+import { QuizService } from "../../services/quiz.service";
+import { Quiz } from "../../models/quiz";
+import Question from "../../models/question";
 
 @Component({
   selector: "quiz",

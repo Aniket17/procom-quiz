@@ -1,12 +1,39 @@
-<div class="row col-sm-12" *ngIf="!isReviewing">
-  <quiz-toobar (onNext)="getNextQuestion()" (onPrevious)="getPreviousQuestion()" [nextDisabled]="disableNext()"
-    [prevDisabled]="disablePrevious()" (onReview)="review($event)"></quiz-toobar>
-  <timer [duration]="duration" (timerElapsed)="submit()"></timer>
-  <question [question]="currentQuestion"></question>
+<div class="row bg-title ng-scope">
+  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+    <h4 class="page-title">Quiz</h4>
+  </div>
+  <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+    <ol class="breadcrumb">
+      <li>
+        <a>Random Quiz</a>
+      </li>
+      <li class="active">Quiz</li>
+    </ol>
+  </div>
 </div>
-
-<div class="row col sm-12" *ngIf="isReviewing">
-  <div *ngFor="let q of quiz.questions">
-    <review-question [question]="q" (onQuestionClick)="onReviewQuestionClick($event)"></review-question>
+<div class="card">
+  <div class="panel panel-danger" *ngIf="quiz">
+    <div class="panel-heading">
+      <span class="pull-left badge badge-info">
+        Question {{currentQuestion.index+1}} of {{quiz.questions.length}}
+      </span>
+      <timer class="pull-right badge badge-info" [duration]="duration" (timerElapsed)="submit()"></timer>
+    </div>
+    <div class="panel-body">
+      <div class="row" *ngIf="!isReviewing">
+        <div class="col-sm-12 card">
+          <question [question]="currentQuestion"></question>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <quiz-toobar class="row" (onSubmit)="submit()" (onNext)="getNextQuestion()" (onPrevious)="getPreviousQuestion()"
+          [nextDisabled]="disableNext()" [prevDisabled]="disablePrevious()" (onReview)="review($event)"></quiz-toobar>
+      </div>
+      <div class="row" *ngIf="isReviewing">
+        <div *ngFor="let q of quiz.questions" class="col-sm-12 reviewQuestion">
+          <review-question [question]="q" (onQuestionClick)="onReviewQuestionClick($event)"></review-question>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -9,6 +9,7 @@ export class QuizToobarComponent implements OnInit {
   @Output() onNext = new EventEmitter();
   @Output() onPrevious = new EventEmitter();
   @Output() onReview = new EventEmitter();
+  @Output() onSubmit = new EventEmitter();
 
   @Input() nextDisabled: boolean;
   @Input() prevDisabled: boolean;
@@ -25,5 +26,8 @@ export class QuizToobarComponent implements OnInit {
   review() {
     this.isReviewing = !this.isReviewing;
     this.onReview.emit({ isReviewing: this.isReviewing });
+  }
+  submit() {
+    this.onSubmit.emit();
   }
 }

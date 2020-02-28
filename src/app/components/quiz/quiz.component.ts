@@ -21,7 +21,7 @@ export class QuizComponent implements OnInit {
   quiz: Quiz;
   currentQuestion: Question;
   id: number = -1;
-  duration: number = 2;
+  duration: number = 120; //default but should read from config
   isReviewing: boolean;
 
   ngOnInit() {

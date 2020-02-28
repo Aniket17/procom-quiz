@@ -1,0 +1,9 @@
+ul > li {
+  list-style: decimal;
+}
+input[type="radio"] {
+  margin: 0 5px;
+}
+i {
+  margin: 0 5px;
+}

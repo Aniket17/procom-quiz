@@ -7,6 +7,6 @@ import { HttpClient } from "@angular/common/http";
 export class QuizService {
   constructor(private http: HttpClient) {}
   getQuiz(quizId: number) {
-    return this.http.get(`data/${quizId}.json`).toPromise();
+    return this.http.get(`assets/${quizId}.json`).toPromise();
   }
 }

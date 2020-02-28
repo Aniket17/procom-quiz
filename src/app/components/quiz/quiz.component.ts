@@ -50,11 +50,14 @@ export class QuizComponent implements OnInit {
     return (
       !this.quiz ||
       !this.quiz.questions ||
-      this.id >= this.quiz.questions.length - 1
+      this.id >= this.quiz.questions.length - 1 ||
+      this.isReviewing
     );
   }
   disablePrevious() {
-    return !this.quiz || !this.quiz.questions || this.id <= 0;
+    return (
+      !this.quiz || !this.quiz.questions || this.id <= 0 || this.isReviewing
+    );
   }
   review() {
     this.isReviewing = !this.isReviewing;

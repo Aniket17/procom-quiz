@@ -30,10 +30,12 @@ export class QuizComponent implements OnInit {
   }
 
   getNextQuestion() {
+    this.saveAnswer();
     this.currentQuestion = this.quiz.questions[++this.id];
   }
 
   getPreviousQuestion() {
+    this.saveAnswer();
     this.currentQuestion = this.quiz.questions[--this.id];
   }
   disableNext() {
@@ -55,6 +57,12 @@ export class QuizComponent implements OnInit {
   }
   submit() {}
   saveAnswer() {
+    if (!this.currentQuestion) return;
     //in case you want to save it to persistent storage
+    this.quiz.questions.forEach(x => {
+      if (x.id == this.currentQuestion.id) {
+        x = this.currentQuestion;
+      }
+    });
   }
 }

@@ -1,1 +1,17 @@
-{{question|json}}
+<div class="row" *ngIf="question">
+    <div class="col-sm-12">
+        <i class="fa fa-question-circle"></i>
+        <b>{{question.content}}</b>
+    </div>
+    <div class="col-sm-12">
+        <ul>
+            <li *ngFor="let c of question.choices">
+                <div class="form-group">
+                    <input type="radio" class="radio" id="option_{{c.id}}" name="option_{{c.questionId}}" [value]="c.id"
+                        [(ngModel)]="question.selected" />
+                    <label for="option_{{c.id}}">{{c.content}}</label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

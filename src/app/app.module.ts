@@ -7,11 +7,11 @@ import { WelcomeComponent } from "./components/welcome/welcome.component";
 import { QuizComponent } from "./components/quiz/quiz.component";
 import { TimerComponent } from "./components/timer/timer.component";
 import { QuizToobarComponent } from "./components/quiz-toobar/quiz-toobar.component";
-import { ReviewQuestionsComponent } from "./components/review-questions/review-questions.component";
 import { ResultComponent } from "./components/result/result.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
-import { QuestionComponent } from './components/question/question.component';
+import { QuestionComponent } from "./components/question/question.component";
+import { ReviewQuestionComponent } from "./components/review-question/review-question.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
@@ -21,9 +21,9 @@ import { QuestionComponent } from './components/question/question.component';
     QuizComponent,
     TimerComponent,
     QuizToobarComponent,
-    ReviewQuestionsComponent,
     ResultComponent,
-    QuestionComponent
+    QuestionComponent,
+    ReviewQuestionComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -3,8 +3,7 @@ import { EventEmitter } from "@angular/core";
 
 @Component({
   selector: "timer",
-  templateUrl: "./timer.component.html",
-  styleUrls: ["./timer.component.css"]
+  templateUrl: "./timer.component.html"
 })
 export class TimerComponent implements OnInit {
   timer: any = null;

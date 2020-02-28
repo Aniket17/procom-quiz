@@ -2,8 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "quiz-toobar",
-  templateUrl: "./quiz-toobar.component.html",
-  styleUrls: ["./quiz-toobar.component.css"]
+  templateUrl: "./quiz-toobar.component.html"
 })
 export class QuizToobarComponent implements OnInit {
   @Output() onNext = new EventEmitter();

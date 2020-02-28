@@ -4,8 +4,7 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: "result",
-  templateUrl: "./result.component.html",
-  styleUrls: ["./result.component.css"]
+  templateUrl: "./result.component.html"
 })
 export class ResultComponent implements OnInit {
   constructor(private stateService: StateService, private router: Router) {}

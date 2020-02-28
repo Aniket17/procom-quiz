@@ -7,8 +7,7 @@ import { Router } from "@angular/router";
 
 @Component({
   selector: "quiz",
-  templateUrl: "./quiz.component.html",
-  styleUrls: ["./quiz.component.css"]
+  templateUrl: "./quiz.component.html"
 })
 export class QuizComponent implements OnInit {
   constructor(

@@ -3,8 +3,7 @@ import Question from "../../models/question";
 
 @Component({
   selector: "review-question",
-  templateUrl: "./review-question.component.html",
-  styleUrls: ["./review-question.component.css"]
+  templateUrl: "./review-question.component.html"
 })
 export class ReviewQuestionComponent implements OnInit {
   @Input() question: Question;

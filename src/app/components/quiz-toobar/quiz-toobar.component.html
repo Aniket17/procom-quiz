@@ -1,17 +1,17 @@
 <div class="container">
     <div class="row justify-content-between">
-        <div class="col-3">
+        <div class="col">
             <button class="btn btn-info" [disabled]="prevDisabled" (click)="previous()"> <i
                     class="fa fa-arrow-left"></i>
                 Previous</button>
         </div>
-        <div class="col-3">
+        <div class="col">
             <button class="btn btn-success" (click)="review($event)"> <i class="fa fa-eye"></i> Review</button>
         </div>
-        <div class="col-3">
-            <button class="btn btn-success" (click)="submit()">Submit <i class="fa fa-send-o"></i></button>
+        <div class="col">
+            <button class="btn btn-success" (click)="submit()"><i class="fa fa-send-o"></i> Submit </button>
         </div>
-        <div class="col-3">
+        <div class="col">
             <button class="btn btn-info" [disabled]="nextDisabled" (click)="next()">Next <i
                     class="fa fa-arrow-right"></i></button>
         </div>

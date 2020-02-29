@@ -6,7 +6,7 @@
       <span class="pull-left badge badge-info">
         Question {{currentQuestion.index+1}} of {{quiz.questions.length}}
       </span>
-      <timer class="pull-right badge badge-info" [duration]="duration" (timerElapsed)="submit()"></timer>
+      <timer class="pull-right badge badge-info" [duration]="config.duration" (timerElapsed)="submit()"></timer>
     </div>
     <div class="panel-body">
       <div class="row" *ngIf="!isReviewing">

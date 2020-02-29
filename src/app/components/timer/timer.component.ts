@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
+import { Component, OnInit, Input, Output, OnDestroy } from "@angular/core";
 import { EventEmitter } from "@angular/core";
 
 @Component({
   selector: "timer",
   templateUrl: "./timer.component.html"
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, OnDestroy {
   timer: any = null;
   startTime: Date;
   endTime: Date;
@@ -21,6 +21,9 @@ export class TimerComponent implements OnInit {
     this.timer = setInterval(() => {
       this.tick();
     }, 1000);
+  }
+  ngOnDestroy() {
+    clearInterval(this.timer);
   }
   tick() {
     const now = new Date();

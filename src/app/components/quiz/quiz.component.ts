@@ -4,6 +4,7 @@ import { Quiz } from "../../models/quiz";
 import Question from "../../models/question";
 import { StateService } from "../../services/state.service";
 import { Router } from "@angular/router";
+import QuizConfiguration from "src/app/models/quiz.configuration";
 
 @Component({
   selector: "quiz",
@@ -20,11 +21,12 @@ export class QuizComponent implements OnInit {
   quiz: Quiz;
   currentQuestion: Question;
   id: number = -1;
-  duration: number = 1200; //default but should read from config
+  config: QuizConfiguration;
   isReviewing: boolean;
   loading: boolean = false;
 
   ngOnInit() {
+    this.config = new QuizConfiguration({}); //should read it from config.json
     this.loadQuiz(this.quizId);
   }
   async loadQuiz(quizId: number) {

@@ -4,7 +4,7 @@ import { Quiz } from "../../models/quiz";
 import Question from "../../models/question";
 import { StateService } from "../../services/state.service";
 import { Router } from "@angular/router";
-import QuizConfiguration from "src/app/models/quiz.configuration";
+import QuizConfiguration from "../../models/quiz.configuration";
 
 @Component({
   selector: "quiz",

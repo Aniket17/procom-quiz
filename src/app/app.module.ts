@@ -14,6 +14,7 @@ import { QuestionComponent } from "./components/question/question.component";
 import { ReviewQuestionComponent } from "./components/review-question/review-question.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { LoadingComponent } from "./components/loading/loading.component";
+import { BreadcrumComponent } from "./components/breadcrum/breadcrum.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
@@ -27,7 +28,8 @@ import { LoadingComponent } from "./components/loading/loading.component";
     QuestionComponent,
     ReviewQuestionComponent,
     NavbarComponent,
-    LoadingComponent
+    LoadingComponent,
+    BreadcrumComponent
   ],
   bootstrap: [AppComponent]
 })

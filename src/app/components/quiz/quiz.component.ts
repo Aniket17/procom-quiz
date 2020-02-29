@@ -20,7 +20,7 @@ export class QuizComponent implements OnInit {
   quiz: Quiz;
   currentQuestion: Question;
   id: number = -1;
-  duration: number = 120; //default but should read from config
+  duration: number = 1200; //default but should read from config
   isReviewing: boolean;
   loading: boolean = false;
 

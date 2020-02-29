@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { QuestionComponent } from "./components/question/question.component";
 import { ReviewQuestionComponent } from "./components/review-question/review-question.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { LoadingComponent } from "./components/loading/loading.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
@@ -25,7 +26,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
     ResultComponent,
     QuestionComponent,
     ReviewQuestionComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent
   ],
   bootstrap: [AppComponent]
 })

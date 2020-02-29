@@ -22,17 +22,22 @@ export class QuizComponent implements OnInit {
   id: number = -1;
   duration: number = 120; //default but should read from config
   isReviewing: boolean;
+  loading: boolean = false;
 
   ngOnInit() {
     this.loadQuiz(this.quizId);
   }
   async loadQuiz(quizId: number) {
     try {
+      this.loading = true;
       let resp = await this.quizService.getQuiz(quizId);
+
       this.quiz = new Quiz(resp);
       this.getNextQuestion();
     } catch (error) {
       console.log(error);
+    } finally {
+      this.loading = false;
     }
   }
 

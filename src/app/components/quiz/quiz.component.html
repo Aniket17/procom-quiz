@@ -11,7 +11,8 @@
     </ol>
   </div>
 </div>
-<div class="card">
+<loading [loading]="loading"></loading>
+<div class="card" [hidden]="loading">
   <div class="panel panel-danger" *ngIf="quiz">
     <div class="panel-heading">
       <span class="pull-left badge badge-info">

@@ -4,14 +4,17 @@
         <b>{{question.content}}</b>
     </div>
     <div class="col-sm-12">
-        <ul>
-            <li *ngFor="let c of question.choices">
-                <div class="form-group">
-                    <input type="radio" class="radio" id="option_{{c.id}}" name="option_{{c.questionId}}" [value]="c.id"
-                        [(ngModel)]="question.selected" />
-                    <label for="option_{{c.id}}">{{c.content}}</label>
-                </div>
-            </li>
-        </ul>
+        <form #questionForm="ngForm">
+            <ul>
+                <li *ngFor="let c of question.choices">
+                    <div class="form-group">
+                        <input type="radio" class="radio" id="option_{{c.id}}" name="option_{{c.questionId}}"
+                            [value]="c.id" [(ngModel)]="question.selected" required (change)="onChange(questionForm)" />
+                        <label for="option_{{c.id}}">{{c.content}}</label>
+                    </div>
+                </li>
+            </ul>
+            <p [hidden]="questionForm.valid">*Answer is required</p>
+        </form>
     </div>
 </div>

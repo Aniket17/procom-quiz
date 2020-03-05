@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import Question from "../../models/question";
+import { StateService } from "src/app/services/state.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "question",
@@ -9,6 +11,9 @@ import Question from "../../models/question";
 export class QuestionComponent implements OnInit {
   @Input() question: Question;
 
-  constructor() {}
+  constructor(private stateService: StateService) {}
   ngOnInit() {}
+  onChange(questionForm: NgForm) {
+    this.stateService.onFormChanged(questionForm.valid);
+  }
 }

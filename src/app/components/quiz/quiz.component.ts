@@ -5,6 +5,7 @@ import Question from "../../models/question";
 import { StateService } from "../../services/state.service";
 import { Router } from "@angular/router";
 import QuizConfiguration from "../../models/quiz.configuration";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "quiz",
@@ -24,16 +25,22 @@ export class QuizComponent implements OnInit {
   config: QuizConfiguration;
   isReviewing: boolean;
   loading: boolean = false;
-
+  isFormValid: boolean = false;
+  sub: Subscription;
   ngOnInit() {
     this.config = new QuizConfiguration({}); //should read it from config.json
     this.loadQuiz(this.quizId);
+    this.sub = this.stateService.formSubjectObservable$.subscribe(x => {
+      this.isFormValid = x;
+    });
+  }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
   async loadQuiz(quizId: number) {
     try {
       this.loading = true;
       let resp = await this.quizService.getQuiz(quizId);
-
       this.quiz = new Quiz(resp);
       this.getNextQuestion();
     } catch (error) {
@@ -46,9 +53,11 @@ export class QuizComponent implements OnInit {
   getNextQuestion() {
     this.saveAnswer();
     this.currentQuestion = this.quiz.questions[++this.id];
+    this.stateService.onFormChanged(false);
   }
 
   getPreviousQuestion() {
+    this.stateService.onFormChanged(true);
     this.saveAnswer();
     this.currentQuestion = this.quiz.questions[--this.id];
   }
@@ -57,7 +66,8 @@ export class QuizComponent implements OnInit {
       !this.quiz ||
       !this.quiz.questions ||
       this.id >= this.quiz.questions.length - 1 ||
-      this.isReviewing
+      this.isReviewing ||
+      !this.isFormValid
     );
   }
   disablePrevious() {

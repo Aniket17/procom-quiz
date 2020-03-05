@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { StateService } from "src/app/services/state.service";
+import { Observable, Subscription } from "rxjs";
 
 @Component({
   selector: "quiz-toobar",
@@ -13,9 +15,8 @@ export class QuizToobarComponent implements OnInit {
   @Input() nextDisabled: boolean;
   @Input() prevDisabled: boolean;
   isReviewing: boolean = false;
-  constructor() {}
-  ngOnInit() {}
 
+  constructor(private stateService: StateService) {}
   next() {
     this.onNext.emit("next");
   }
